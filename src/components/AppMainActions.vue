@@ -39,7 +39,7 @@ export default {
 
 <template>
               
-    <ul>
+    <ul class="actionsList">
 
         <li v-for="action in actions">
             <a href="#">

@@ -8,6 +8,9 @@ $spacing-large: 3rem;
 
 body {
     background-color: $dark-color;
+    max-width: 100%;
+
+    overflow-x: hidden;
 }
 
 .container {

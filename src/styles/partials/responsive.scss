@@ -1,0 +1,106 @@
+@media screen and (max-width: 1270px) {
+    .container {
+        padding-inline: 1rem;
+    }
+
+    .actionsSection {
+
+        padding-inline: 0 !important;
+
+        .container {
+            padding: 0;
+        }
+
+        ul {
+            overflow-x: scroll;
+            
+            -ms-overflow-style: none;  /* IE, Edge */
+            scrollbar-width: none;  /* Firefox */
+             /* Chrome, Safari, Opera */
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .navbar {
+        position: absolute;
+        top: calc(100% + 5px);
+        right: calc(-100vw);
+        transition: right 0.2s;
+        
+        text-align: right;
+        
+        width: 25vw;
+        height: unset !important;
+        padding: 1rem 0.5rem;
+
+        background-color: white;
+
+        &.open {
+            right: 0;
+        }
+        
+        ul {
+            flex-wrap: wrap;
+            
+            li {
+                flex-basis: 100%;
+                
+                a {
+                    
+                    height: fit-content;
+                    line-height: unset;
+                }
+
+                &.active {
+    
+                    &::after {
+                    left: unset;
+                    right: 0;
+
+                    width: 50%;
+                    height: 3px;
+                    }
+                }
+            }
+        }
+    }
+
+    .icon {
+        display: block !important;
+    }
+
+    .footerNav {
+        height: unset !important;
+
+        .textContainer {
+            flex-wrap: nowrap !important;
+        }
+
+        .imgContainer {
+            display: none;
+        }
+    }
+
+    .footerSocial .container {
+        flex-wrap: wrap !important;
+        gap: 2rem;
+    }
+}
+
+// Tablet
+@media screen and (max-width: 760px) {
+    .navbar {
+        width: 50vw;
+    }
+}
+
+// Mobile
+@media screen and (max-width: 460px) {
+    .navbar {
+        width: 100vw;
+    }
+}

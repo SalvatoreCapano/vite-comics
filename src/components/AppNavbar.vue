@@ -45,7 +45,8 @@ export default {
                 title: "shop",
                 active: false
             },
-        ]
+        ],
+        menuOpen: false
         }
     }
 }
@@ -53,8 +54,17 @@ export default {
 
 
 <template>
-    <nav>
 
+    <span class="icon" v-if="!menuOpen" @click="menuOpen = !menuOpen">
+        |||
+    </span>
+
+    <span class="icon" v-else @click="menuOpen = !menuOpen"> 
+        X
+    </span>
+
+    <nav class="navbar" :class="(menuOpen) ? ('open') : ('')">
+        
         <ul>
 
             <li v-for="item in navbar" :class="(item.active) ? ('active') : ('')">
@@ -73,7 +83,7 @@ export default {
     @import "../styles/partials/mixin.scss";
     @import "../styles/main.scss";
 
-    nav {
+    .navbar {
         height: 110px;
         user-select: none;
     }
@@ -132,6 +142,19 @@ export default {
                 padding: 3px;
             }
         }
+    }
+
+    .icon {
+        font-size: 1.5rem;
+        color: black;
+
+        user-select: none;
+        cursor: pointer;
+
+        width: 30px;
+        height: 30px;
+
+        display: none;
     }
 
 </style>

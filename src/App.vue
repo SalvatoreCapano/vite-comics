@@ -26,5 +26,6 @@ export default {
 
 <style  lang="scss">
 @use "./styles/main";
+@use "./styles/partials/responsive.scss";
 
 </style>

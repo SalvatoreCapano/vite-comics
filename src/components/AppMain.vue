@@ -143,9 +143,12 @@ export default {
                     font-size: 0.8rem;
                     font-weight: 600;
                 }
+
+                &:hover {
+                    filter: contrast(40%);
+                }
             }
         }
-
     }
 
 </style>

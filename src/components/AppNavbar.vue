@@ -61,6 +61,7 @@ export default {
 
     nav {
         height: 110px;
+        user-select: none;
     }
 
     ul {

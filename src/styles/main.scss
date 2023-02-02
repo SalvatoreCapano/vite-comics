@@ -1,8 +1,9 @@
 @import "partials/reset";
 @import "partials/mixin";
 
-$dark-color: #303030;
+$dark-color: #151515;
 $brand-color: #0282f9;
+$spacing-large: 3rem;
 
 body {
     background-color: $dark-color;

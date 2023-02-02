@@ -130,6 +130,48 @@ export default {
         <section class="footerSocial">
             <div class="container">
 
+                <button class="ctaBtn">
+                    sign-up now!
+                </button>
+
+                <div class="socials">
+                    <h3 class="ctaText">follow us</h3>
+
+                    <div>
+                        <ul class="socialList">
+                            <li>
+                                <a href="#">
+                                    <img src="../assets/footer-facebook.png" alt="Facebook">
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="../assets/footer-twitter.png" alt="Twitter">
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="../assets/footer-youtube.png" alt="Youtube">
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="../assets/footer-pinterest.png" alt="Pinterest">
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <img src="../assets/footer-periscope.png" alt="Periscope">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div> <!-- /container-->
         </section>
 
@@ -155,7 +197,6 @@ export default {
 
             position: relative;
         }
-
 
         .textContainer {
             @include flexRowSpaced;
@@ -195,6 +236,71 @@ export default {
             right: 0;
             top: 50%;
             transform: translateY(-50%);
+        }
+    }
+
+    .footerSocial {
+        background-color: $less-dark-color;
+        padding: $spacing-large 0;
+
+        .container {
+            @include flexSpaceBtwn;
+
+            .ctaBtn {
+                display: inline-block;
+                padding: 16px;
+
+                border: 3px solid $brand-color;
+                background-color: $less-dark-color;
+
+                color: #ffffff;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 1.05rem;
+
+                position: relative;
+                isolation: isolate;
+
+                cursor: pointer;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: -1;
+
+                    transition: height 0.2s;
+                    background-color: $brand-color;
+                    opacity: 0.5;
+
+                    width: 100%;
+                    height: 0;
+                }
+
+                &:hover::after {
+                    height: 100%;
+                }
+            }
+
+            .socials {
+                @include flexRowSpaced;
+
+                h3 {
+                    color: $brand-color;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                }
+
+                .socialList {
+                    @include flexRowSpaced;
+                    list-style: none;
+
+                    li:hover {
+                        filter: brightness(0) contrast(100%) invert(75%);
+                    }
+                }
+            }
         }
     }
 

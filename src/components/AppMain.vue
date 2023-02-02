@@ -2,9 +2,37 @@
 
 export default {
     name: 'AppMain',
-    // components: {
-        
-    // }
+    data () {
+        return {
+            actions: [
+                {
+                    imgUrl: "buy-comics-digital-comics.png",
+                    title: "digital comics"
+                },
+                {
+                    imgUrl: "buy-comics-merchandise.png",
+                    title: "dc merchandise"
+                },
+                {
+                    imgUrl: "buy-comics-subscriptions.png",
+                    title: "subscriptions"
+                },
+                {
+                    imgUrl: "buy-comics-shop-locator.png",
+                    title: "comic shop locator"
+                },
+                {
+                    imgUrl: "buy-dc-power-visa.svg",
+                    title: "dc power visa"
+                },
+            ]
+        }
+    },
+    methods: {
+        getImagePath: function (imgPath) {
+            return new URL(imgPath, import.meta.url).href;
+        }
+    }
 }
 </script>
 
@@ -28,57 +56,13 @@ export default {
                 
                 <ul>
 
-                    <li>
+                    <li v-for="action in actions">
                         <a href="#">
                             <div class="imgContainer">
-                                <img src="../assets/buy-comics-digital-comics.png" alt="Digital Comics">
+                                <img :src="getImagePath(`../assets/${action.imgUrl}`)" :alt="action.title">
                             </div> <!-- /imgContainer-->
                             <span class="textContainer">
-                                digital comics
-                            </span> <!-- /textContainer-->
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <div class="imgContainer">
-                                <img src="../assets/buy-comics-merchandise.png" alt="DC Merchandise">
-                            </div> <!-- /imgContainer-->
-                            <span class="textContainer">
-                                dc merchandise
-                            </span> <!-- /textContainer-->
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <div class="imgContainer">
-                                <img src="../assets/buy-comics-subscriptions.png" alt="Subscription">
-                            </div> <!-- /imgContainer-->
-                            <span class="textContainer">
-                                subscription
-                            </span> <!-- /textContainer-->
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <div class="imgContainer">
-                                <img src="../assets/buy-comics-shop-locator.png" alt="Comic Shop Locator">
-                            </div> <!-- /imgContainer-->
-                            <span class="textContainer">
-                                comic shop locator
-                            </span> <!-- /textContainer-->
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <div class="imgContainer">
-                                <img src="../assets/buy-dc-power-visa.svg" alt="DC Power Visa">
-                            </div> <!-- /imgContainer-->
-                            <span class="textContainer">
-                                dc power visa
+                                {{ action.title }}
                             </span> <!-- /textContainer-->
                         </a>
                     </li>

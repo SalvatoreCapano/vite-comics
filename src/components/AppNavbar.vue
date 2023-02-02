@@ -1,7 +1,53 @@
 <script>
 
 export default {
-    name: 'AppNavbar'
+    name: 'AppNavbar',
+    data () {
+        return {
+            navbar: [
+            {
+                title: "characters",
+                active: false
+            },
+            {
+                title: "comics",
+                active: true
+            },
+            {
+                title: "movies",
+                active: false
+            },
+            {
+                title: "tv",
+                active: false
+            },
+            {
+                title: "games",
+                active: false
+            },
+            {
+                title: "collectibles",
+                active: false
+            },
+            {
+                title: "videos",
+                active: false
+            },
+            {
+                title: "fans",
+                active: false
+            },
+            {
+                title: "news",
+                active: false
+            },
+            {
+                title: "shop",
+                active: false
+            },
+        ]
+        }
+    }
 }
 </script>
 
@@ -10,45 +56,13 @@ export default {
     <nav>
 
         <ul>
-            <li>
-                <a href="#">characters</a>
+
+            <li v-for="item in navbar" :class="(item.active) ? ('active') : ('')">
+                <a href="#">
+                    {{ item.title }}
+                </a>
             </li>
 
-            <li class="active">
-                <a href="#">comics</a>
-            </li>
-
-            <li>
-                <a href="#">movies</a>
-            </li>
-
-            <li>
-                <a href="#">tv</a>
-            </li>
-
-            <li>
-                <a href="#">games</a>
-            </li>
-
-            <li>
-                <a href="#">collectibles</a>
-            </li>
-
-            <li>
-                <a href="#">videos</a>
-            </li>
-
-            <li>
-                <a href="#">fans</a>
-            </li>
-
-            <li>
-                <a href="#">news</a>
-            </li>
-
-            <li>
-                <a href="#">shop</a>
-            </li>
         </ul>
 
     </nav>

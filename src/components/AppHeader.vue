@@ -34,7 +34,12 @@ export default {
     header {
         background-color: #ffffff;
         height: fit-content;
-        height: 110px
+        height: 110px;
+
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 30;
     }
     
     .container {

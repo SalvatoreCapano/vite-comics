@@ -127,7 +127,7 @@ export default {
         background-size: cover;
         overflow: hidden;
 
-        height: 450px;
+        height: 420px;
 
         .container {
             @include flexSpaceBtwn;

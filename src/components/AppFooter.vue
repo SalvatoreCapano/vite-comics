@@ -2,9 +2,55 @@
 
 export default {
     name: 'AppFooter',
-    // components: {
-        
-    // }
+    data() {
+        return {
+            footerLists: [
+                {
+                    title: "dc comics",
+                    elements: ["characters", "comics", "movies", "TV", "games", "videos", "news"]
+                },
+                {
+                    title: "shop",
+                    elements: ["shop DC", "shop DC collectibles"]
+                },
+                {
+                    title: "DC",
+                    elements: ["terms of use", "privacy policy (new)", "ad choices", "advertising", "jobs", "subscriptions", "talent workshops", "cpsc certificates", "ratings", "shop helperNameMap", "contact us"]
+                },
+                {
+                    title: "sites",
+                    elements: ["DC", "MAD magazines", "DC kids", "DC universe", "DC power visa"]
+                }
+            ],
+            socialLinks: [
+                {
+                    name: "Facebook",
+                    imgUrl: "footer-facebook.png"
+                },
+                {
+                    name: "Twitter",
+                    imgUrl: "footer-twitter.png"
+                },
+                {
+                    name: "Youtube",
+                    imgUrl: "footer-youtube.png"
+                },
+                {
+                    name: "Pinterest",
+                    imgUrl: "footer-pinterest.png"
+                },
+                {
+                    name: "Periscope",
+                    imgUrl: "footer-periscope.png"
+                }
+            ]
+        }
+    },
+    methods: {
+        getImagePath: function (imgPath) {
+            return new URL(imgPath, import.meta.url).href;
+        }
+    }
 }
 </script>
 
@@ -17,108 +63,21 @@ export default {
             <div class="container">
 
                 <div class="textContainer">
-                    <div class="col">
-                        <div>
-                            <h3 class="footerListTitle">dc comics</h3>
-                            <ul class="footerList">
-                                <li>
-                                    <a href="#">character</a>
-                                </li>
-                                <li>
-                                    <a href="#">comics</a>
-                                </li>
-                                <li>
-                                    <a href="#">movies</a>
-                                </li>
-                                <li>
-                                    <a href="#">TV</a>
-                                </li>
-                                <li>
-                                    <a href="#">games</a>
-                                </li>
-                                <li>
-                                    <a href="#">videos</a>
-                                </li>
-                                <li>
-                                    <a href="#">news</a>
-                                </li>
-                            </ul>
-                        </div>
 
-                        <div>
-                            <h3 class="footerListTitle">shop</h3>
-                            <ul class="footerList">
-                                <li>
-                                    <a href="#">shop DC</a>
-                                </li>
-                                <li>
-                                    <a href="#">shop DC collectibles</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="col" v-for="list in footerLists">
+
+                        <h3 class="footerListTitle">{{ list.title }}</h3>
+                        
+                        <ul class="footerList">
+                            <li v-for="element in list.elements">
+                                <a href="#">{{ element }}</a>
+                            </li>
+                        </ul>
+                         <!-- /footerList-->
+
                     </div> <!-- /col-->
 
-                    <div class="col">
-                        <h3 class="footerListTitle">dc</h3>
-                            <ul class="footerList">
-                                <li>
-                                    <a href="#">terms of use</a>
-                                </li>
-                                <li>
-                                    <a href="#">privacy polici (new)</a>
-                                </li>
-                                <li>
-                                    <a href="#">ad choices</a>
-                                </li>
-                                <li>
-                                    <a href="#">advertising</a>
-                                </li>
-                                <li>
-                                    <a href="#">jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">subscriptions</a>
-                                </li>
-                                <li>
-                                    <a href="#">talent workshops</a>
-                                </li>
-                                <li>
-                                    <a href="#">cpsc certificates</a>
-                                </li>
-                                <li>
-                                    <a href="#">ratings</a>
-                                </li>
-                                <li>
-                                    <a href="#">show help</a>
-                                </li>
-                                <li>
-                                    <a href="#">contact us</a>
-                                </li>
-                            </ul>
-                    </div> <!-- /col-->
-
-                    <div class="col">
-                        <h3 class="footerListTitle">sites</h3>
-                            <ul class="footerList">
-                                <li>
-                                    <a href="#">DC</a>
-                                </li>
-                                <li>
-                                    <a href="#">MAD magazines</a>
-                                </li>
-                                <li>
-                                    <a href="#">DC kids</a>
-                                </li>
-                                <li>
-                                    <a href="#">DC universe</a>
-                                </li>
-                                <li>
-                                    <a href="#">DC power visa</a>
-                                </li>
-                            </ul>
-                    </div> <!-- /col-->
                 </div> <!-- /textContainer-->
-
 
                 <div class="imgContainer">
                     <img src="../assets/dc-logo-bg.png" alt="DC">
@@ -139,33 +98,9 @@ export default {
 
                     <div>
                         <ul class="socialList">
-                            <li>
+                            <li v-for="social in socialLinks">
                                 <a href="#">
-                                    <img src="../assets/footer-facebook.png" alt="Facebook">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <img src="../assets/footer-twitter.png" alt="Twitter">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <img src="../assets/footer-youtube.png" alt="Youtube">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <img src="../assets/footer-pinterest.png" alt="Pinterest">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <img src="../assets/footer-periscope.png" alt="Periscope">
+                                    <img :src="getImagePath(`../assets/${social.imgUrl}`)" :alt="social.name">
                                 </a>
                             </li>
                         </ul>
@@ -192,20 +127,22 @@ export default {
         background-size: cover;
         overflow: hidden;
 
+        height: 450px;
+
         .container {
             @include flexSpaceBtwn;
+            height: 100%;
 
             position: relative;
         }
 
         .textContainer {
-            @include flexRowSpaced;
-            align-items: flex-start;
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 1.5rem 2.5rem;
 
-            .col:first-child > div:first-child {
-                margin-bottom: 1.25rem;
-            }
+            height: 100%;
 
             .footerListTitle {
                 color: #dddddd;

@@ -25,6 +25,9 @@
 }
 
 @media screen and (max-width: 1000px) {
+    header {
+        padding: 0.5rem 0;
+    }
     .navbar {
         position: absolute;
         top: calc(100% + 5px);

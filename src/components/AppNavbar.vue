@@ -56,11 +56,11 @@ export default {
 <template>
 
     <span class="icon" v-if="!menuOpen" @click="menuOpen = !menuOpen">
-        |||
+        <font-awesome-icon icon="fa-solid fa-bars" />
     </span>
 
     <span class="icon" v-else @click="menuOpen = !menuOpen"> 
-        X
+        <font-awesome-icon icon="fa-solid fa-xmark" />
     </span>
 
     <nav class="navbar" :class="(menuOpen) ? ('open') : ('')">
@@ -81,22 +81,18 @@ export default {
 
 <style lang="scss" scoped>
     @import "../styles/partials/mixin.scss";
-    @import "../styles/main.scss";
 
     .navbar {
-        height: 110px;
         user-select: none;
     }
 
     ul {
         @include flexRowSpaced;
-
         list-style: none;
-        height: 100%;
 
         li {
-            height: 100%;
             position: relative;
+
             color: $dark-color;
             transition: color 0.1s;
 
@@ -129,17 +125,17 @@ export default {
 
             a {
                 display: inline-block;
-                height: 100%;
 
                 text-decoration: none;
                 text-transform: uppercase;
+
                 color: unset;
                 font-family: 'Blinker', sans-serif;
                 font-size: 0.9rem;
                 font-weight: 600;
-                line-height: calc(110px - 6px); //Altezza totale - paddingY
 
-                padding: 3px;
+                line-height: 100px;
+                padding: 0 4px;
             }
         }
     }
@@ -150,9 +146,6 @@ export default {
 
         user-select: none;
         cursor: pointer;
-
-        width: 30px;
-        height: 30px;
 
         display: none;
     }

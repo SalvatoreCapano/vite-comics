@@ -1,13 +1,21 @@
 <script>
 
-import AppMainActions from './AppMainActions.vue';
+    import AppMainActions from './AppMainActions.vue';
+    import SeriesCard from './SeriesCard.vue';
+    import seriesData from '../data/dc-comics.json'
 
-export default {
-    name: 'AppMain',
-    components: {
-        AppMainActions 
-    }
-};
+    export default {
+        name: 'AppMain',
+        components: {
+            AppMainActions,
+            SeriesCard
+        },
+        data() {
+            return {
+                seriesData: seriesData,
+            };
+        },
+    };
 
 </script>
 
@@ -17,13 +25,30 @@ export default {
     <main>
         
         <!-- Main Content -->
-        <section class="mainContentSection">
+        <section class="heroSection">
+        </section> <!-- /heroSection-->
+
+
+        <section class="contentSection">
+
             <div class="container">
 
-                <span>-- Content goes here --</span>
+                <h2 class="sectionTitle">current series</h2>
+
+                <div class="cardsContainer">
+
+                    <SeriesCard class="card" v-for="elem in seriesData"
+                        :title="elem.series"
+                        :url="elem.thumb"
+                    />
+
+                </div> <!-- /cardsContainer-->
+
+                <button class="actionBtn">load more</button>
 
             </div> <!-- /container-->
-        </section> <!-- /mainContentSection-->
+
+        </section> <!-- /contentSection-->
 
 
         <section class="actionsSection">
@@ -43,17 +68,47 @@ export default {
     @import "../styles/main.scss";
     @import "../styles/partials/mixin.scss";
 
-    .mainContentSection {
-        background-color: $dark-color;
-        padding: $spacing-large;
+    .heroSection {
+        height: 420px;
 
-        span {
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-        }
+        background-image: url("../assets/jumbotron.jpg");
+        background-size: cover;
+        background-position: center top;
     }
 
+    .contentSection {
+        background-color: $dark-color;
+
+        .container {
+            padding-bottom: 1rem;
+        }
+
+        .sectionTitle {
+            color: white;
+
+            background-color: $brand-color;
+            display: inline-block;
+            padding: 10px 20px;
+
+            text-transform: uppercase;
+            position: relative;
+            top: -25px;
+        }
+
+        .cardsContainer {
+            padding: 1rem;
+            margin-bottom: 1rem;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem 1.25rem;
+
+            .card {
+                width: 165px;
+            }
+        }
+    }
     .actionsSection {
         background-color: $brand-color;
         padding: $spacing-large;

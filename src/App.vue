@@ -24,8 +24,7 @@ export default {
   
 </template>
 
-<style  lang="scss">
-@use "./styles/main";
-@use "./styles/partials/responsive.scss";
 
+<style  lang="scss">
+  @import "styles/partials/reset.scss";
 </style>

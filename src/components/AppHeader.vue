@@ -1,13 +1,14 @@
 <script>
 
-import AppNavbar from './AppNavbar.vue';
+    import AppNavbar from './AppNavbar.vue';
 
-export default {
-    name: 'AppHeader',
-    components: {
-        AppNavbar
+    export default {
+        name: 'AppHeader',
+        components: {
+            AppNavbar
+        }
     }
-}
+
 </script>
 
 
@@ -33,26 +34,25 @@ export default {
 
     header {
         background-color: #ffffff;
-        height: fit-content;
-        height: 110px;
 
         position: sticky;
         top: 0;
         left: 0;
         z-index: 30;
     }
-    
     .container {
         @include flexSpaceBtwn;
     }
-    
     .imgContainer {
-        height: 100%;
-        padding: 0.75rem 0;
-
+        height: 70px;
+        
         a {
             display: inline-block;
             height: 100%;
+
+            img {
+                max-height: 100%;
+            }
         }
     }
 
